@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Spam Email</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+    <body>
+        <div class="jumbotron text-center">
+        <h1>Spam email</h1>
+        <p>Source by Mai Anh Hoa</p>
+        </div>
+        <div class="container">
+            <h2>Input Form</h2>
+            <form action="{{ url_for('result')}} " method="post" name="myForm">
+                <div class="form-group">
+                    <label for="name-text">Nội dung Mail:</label>
+                    <textarea class="form-control" rows="5" id="name-text" name="email_txt"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="sel1">Hãy Chọn Thuật Toán:</label>
+                    <select name="classifier" class="form-control" id="sel1">
+                        <option value="dt">Logistic Regression</option>
+                        <option value="lr">Decision Tree Classifier</option>
+                        <option value="rm">Random Forest Classifier</option>
+                        <option value="mnb">Multinomial Naive Bayes</option>
+                        <option value="scv">Linear SVC</option>
+                        <option value="knn">K Neighbors Classifie</option>
+                    </select>
+                </div>
+                <p><input type="submit"  value="Phân Loại"/></p>
+            </form>
+        </div>
+    <div class="card-title" style="text-align: center;font-size:50px">{{out}}</div>
+    </body>
+<script>
+function validateForm() {
+  let x = document.forms["myForm"]["email_txt"].value;
+  if (x == "") {
+  alert("Name must be filled out");
+  return false;
+  }
+}
+</script>
+</html>
